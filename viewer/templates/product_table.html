@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% endif %}
+<table border="1">
+    <tr>
+      <td>Title</td>
+    </tr>
+    {% for m in object_list %}
+        <tr>
+            <td>{{ m.title }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
