@@ -13,9 +13,9 @@ from django.urls import reverse_lazy
 
 LOGGER = getLogger()
 
-def welcome(request):
-    return HttpResponse('Welcome to Aromatherapy World!')
 
+class main(TemplateView):
+    template_name = 'main_page.html'
 class SignUpView(CreateView):
     template_name = 'form.html'
     form_class = forms.SignUpForm
@@ -29,6 +29,7 @@ class ProductCreateView(FormView):
     template_name = 'form.html'
     form_class = forms.ProductForm
     success_url = reverse_lazy('product_table')
+
     def form_valid(self, form):
         result = super().form_valid(form)
         cleaned_data = form.cleaned_data
@@ -45,9 +46,11 @@ class ProductTable(LoginRequiredMixin, ListView):
     template_name = 'product_table.html'
     model = Product
     permission_required='viewer.add_movie'
+
 class StuffRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
+
 class ProductView(LoginRequiredMixin, ListView):
     template_name = 'product_table.html'
     model = Product
