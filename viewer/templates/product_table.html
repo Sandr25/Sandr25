@@ -1,17 +1,195 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block content %}
 {% if user.is_authenticated %}
-<p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
 {% endif %}
-<table border="1">
-    <tr>
-      <td>Title</td>
-    </tr>
-    {% for m in object_list %}
-        <tr>
-            <td>{{ m.title }}</td>
-        </tr>
-    {% endfor %}
-</table>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: purple;
+            color: black;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: pink;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 {
+            font-size: 1.2em, bold;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+        .products {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: calc(33.333% - 40px); /* 3 products per row */
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+        }
+        .product .price {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .product button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+        }
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Hi, {{ user.get_username }}. Thanks for logging in.</p>
+        <h3>Welcome to Our Online Shop!</h3>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About us</a>
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Category</h2>
+            <ul>
+                <li><a href="#">Essential Oils</a></li>
+                <li><a href="#">Candles</a></li>
+                <li><a href="#">Diffusors</a></li>
+                <li><a href="#">Gift Cards</a></li>
+            </ul>
+        </div>
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/148/505/apioi7hc4__31644.1684926072.png?c=1">
+                <h2>Lavender Essential Oil</h2>
+                <p class="price">58 PLN</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/145/496/apifps4gu__32612.1684926791.png?c=1" alt="Product 2">
+                <h2>Geranium Essential Oil</h2>
+                <p class="price">68 PLN</p>
+                <button>Add to cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/150/510/apifjwo49__01956.1684925990.png?c=1" alt="Product 3">
+                <h2>Lemon Grass Essential Oil</h2>
+                <p class="price">79 PLN</p>
+                <button>Add to cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="https://aromatherapyoils.pl/wp-content/uploads/2021/09/swieca-sojowa-rajskie-tahiti-1024x1024-1-300x300.jpg" alt="Product 4">
+                <h2>Candle Soy "Heavenly Tahiti"</h2>
+                <p class="price">36 PLN</p>
+                <button>Add to cart</button>
+            </div>
+             <!-- Product 5 -->
+            <div class="product">
+                <img src="https://ecomodernessentials.com.au/cdn/shop/products/CoastalDiffuser_1728x.png?v=1705282979" alt="Product 5">
+                <h2>Diffusor</h2>
+                <p class="price">249 PLN</p>
+                <button>Add to cart</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="https://i.etsystatic.com/16942993/r/il/42572a/3089115988/il_570xN.3089115988_lk97.jpg" alt="Product 6">
+                <h2>Gift Card</h2>
+                <p class="price">200 PLN</p>
+                <button>Add to cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <a href="#">&laquo; Previous</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">Next &raquo;</a>
+    </div>
+</body>
+</html>

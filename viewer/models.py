@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -25,10 +28,18 @@ class Essential_Oil(models.Model):
 
 class Candle(models.Model):
     name = models.CharField(max_length=255)
+    color = models.CharField(max_length=255, default='white')
+    capacity = models.IntegerField(default=120)
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
 
 class Gift_Card(models.Model):
     name = models.CharField(max_length=255)
+    product = models.OneToOneField('Product', on_delete=models.CASCADE)
+
+class Difussor(models.Model):
+    name = models.CharField(max_length=255)
+    specifications = models.CharField(max_length=255)
+    features = models.CharField(max_length=255)
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
 
 class User_Product(models.Model):

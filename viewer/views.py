@@ -16,6 +16,7 @@ LOGGER = getLogger()
 
 class main(TemplateView):
     template_name = 'main_page.html'
+
 class SignUpView(CreateView):
     template_name = 'form.html'
     form_class = forms.SignUpForm
