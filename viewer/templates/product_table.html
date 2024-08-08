@@ -17,7 +17,7 @@
         header {
             background-color: white;
             color: black;
-            padding: 10px 0;
+            padding: 10px 0px;
             text-align: center;
         }
         nav {
@@ -36,11 +36,12 @@
             color: black;
         }
         .container {
-            display: flex;
+            display:flex;
         }
         .sidebar {
             width: 20%;
-            background-color: pink;
+            height:
+            background-color: #fff;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
@@ -117,17 +118,55 @@
         .pagination a:hover {
             background-color: #ddd;
         }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+         .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <header>
         <p>Hi, {{ user.get_username }}. Thanks for logging in.</p>
         <h3>Welcome to Our Online Shop!</h3>
-    </header>
+        <link rel="stylesheet" type="text/css" href="styles.css">
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About us</a>
+        <a href="{% url 'main_page' %}">Home</a>
+        <a href="{% url 'product_table' %}">Products</a>
+        <a href="#">Contacts</a>
+        <a href="{% url 'form' %}">Log in</a>
+        <a href="#cart">Cart</a>
+        <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+        </div>
     </nav>
     <div class="container">
         <div class="sidebar">
@@ -141,55 +180,34 @@
         </div>
         <div class="products">
             <!-- Product 1 -->
-            <div class="product">
-                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/148/505/apioi7hc4__31644.1684926072.png?c=1">
-                <h2>Lavender Essential Oil</h2>
-                <p class="price">58 PLN</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Product 2 -->
-            <div class="product">
-                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/145/496/apifps4gu__32612.1684926791.png?c=1" alt="Product 2">
-                <h2>Geranium Essential Oil</h2>
-                <p class="price">68 PLN</p>
-                <button>Add to cart</button>
-            </div>
-            <!-- Product 3 -->
-            <div class="product">
-                <img src="https://cdn11.bigcommerce.com/s-96i3r9eeb/images/stencil/320w/products/150/510/apifjwo49__01956.1684925990.png?c=1" alt="Product 3">
-                <h2>Lemon Grass Essential Oil</h2>
-                <p class="price">79 PLN</p>
-                <button>Add to cart</button>
-            </div>
-            <!-- Product 4 -->
-            <div class="product">
-                <img src="https://aromatherapyoils.pl/wp-content/uploads/2021/09/swieca-sojowa-rajskie-tahiti-1024x1024-1-300x300.jpg" alt="Product 4">
-                <h2>Candle Soy "Heavenly Tahiti"</h2>
-                <p class="price">36 PLN</p>
-                <button>Add to cart</button>
-            </div>
-             <!-- Product 5 -->
-            <div class="product">
-                <img src="https://ecomodernessentials.com.au/cdn/shop/products/CoastalDiffuser_1728x.png?v=1705282979" alt="Product 5">
-                <h2>Diffusor</h2>
-                <p class="price">249 PLN</p>
-                <button>Add to cart</button>
-            </div>
-            <!-- Product 6 -->
-            <div class="product">
-                <img src="https://i.etsystatic.com/16942993/r/il/42572a/3089115988/il_570xN.3089115988_lk97.jpg" alt="Product 6">
-                <h2>Gift Card</h2>
-                <p class="price">200 PLN</p>
-                <button>Add to cart</button>
-            </div>
+            {% for oil in oils %}
+                <div class="product">
+                    {% if oil.image %}
+                        <img src="{{ oil.image.url }}">
+                    {% else %}
+                        <img src="data:">
+                    {% endif %}
+                    <h2>{{ oil.name }}</h2>
+                    <p class="price">{{ oil.product.price }} PLN</p>
+                    <button onclick="addToCart('Produkt 1')">Add to cart</button>
+                </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="pagination">
-        <a href="#">&laquo; Previous</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">Next &raquo;</a>
-    </div>
+        <div class="pagination">
+            <a href="#">&laquo; Previous</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Next &raquo;</a>
+        </div>
+    <footer>
+        <p>&copy; 2024 Online store all rights reserved.</p>
+    </footer>
+    <script>
+        function addToCart(product) {
+            alert(product + ' added to the cart!');
+        }
+    </script>
 </body>
 </html>

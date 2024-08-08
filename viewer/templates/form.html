@@ -1,7 +1,162 @@
-{% block content %}
- <form method="post">
-   {% csrf_token %}
-   <table>{{ form }}</table>
-   <input type="submit" value="Submit" class="btn btn-primary">
- </form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+        .errorMsg{
+            color:red;
+            font-size:12px;
+          }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+       }
+        .container {
+            width: 80%;
+            overflow: hidden;
+        }
+        .hero {
+            background: url('https://media.timeout.com/images/103951311/630/472/image.jpg') no-repeat center center/cover;
+            height: 100px;
+            color: back;
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Create an account, it takes only few minutes!</h3>
+    </header>
+    <div class="container mt-5">
+        <h2>Registration</h2>
+        <form action="#">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName">
+                <p class="errorMsg" id="userErrorMsg">Invalid Data</p>
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName">
+                <p class="errorMsg" id="lastNameErrorMsg">Invalid Data</p>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Adress</label>
+                <input type="email" class="form-control" id="email">
+                <p class="errorMsg" id="emailErrorMsg">Invalid Data</p>
+            </div>
+            <button type="button" onclick="validateForm()" class="btn btn-primary">Create an account</button>
+        </form>
+        <div>
+            </div>
+        <div>
+            </div>
+        <div class="hero">
+        </div>
+    <footer>
+            <p>&copy; 2024 Online store all rights reserved.</p>
+    </footer>
+        <script>
+            validateForm = () =>{
+                clearMessages();
+                validateFirstName();
+                validateLastName();
+                validateEmail();
+            }
+
+            clearMessages = () =>{
+                let paragraphs = document.getElementsByClassName("errorMsg");
+
+                for(let i = 0;i< paragraphs.length;i++){
+                    paragraphs[i].innerHTML = "";
+                }
+            }
+
+            validateFirstName = () =>{
+                let errorMessages = [];
+                const inputValue = document.getElementById("firstName").value;
+
+                if (inputValue.trim().length === 0){
+                    errorMessages.push("This field is empty.");
+                }
+                if (inputValue.length > 0){
+                    if (inputValue[0] !== inputValue[0].toUpperCase()){
+                        errorMessages.push("The first letter must start with upper case!");
+                    }
+                }
+
+                const errorParagraph = document.getElementById("userErrorMsg");
+
+                errorMessages.forEach(error =>{
+                    errorParagraph.innerHTML += '<p>'+error+'</p>';
+                })
+            }
+
+            validateLastName = () =>{
+                let errorMessages = [];
+                const inputValue = document.getElementById("lastName").value;
+
+                if (inputValue.trim().length === 0){
+                    errorMessages.push("This field is empty.");
+                }
+
+                if (inputValue.length > 0){
+                    if (inputValue[0] !== inputValue[0].toUpperCase()){
+                        errorMessages.push("The first letter must start with upper case!");
+                    }
+                }
+
+                const errorParagraph = document.getElementById("lastNameErrorMsg");
+
+                errorMessages.forEach(error =>{
+                    errorParagraph.innerHTML += '<p>'+error+'</p>';
+                })
+            }
+
+            validateEmail = () =>{
+                let errorMessages = [];
+                const inputValue = document.getElementById("email").value;
+
+                if (inputValue.trim().length === 0){
+                    errorMessages.push("This field is empty.");
+                }
+
+                if (inputValue.length > 0 && !inputValue.includes("@")){
+                    errorMessages.push("Email Adress must include character @");
+                }
+
+                const errorParagraph = document.getElementById("emailErrorMsg");
+
+                errorMessages.forEach(error =>{
+                    errorParagraph.innerHTML += '<p>'+error+'</p>';
+                })
+            }
+        </script>
+</body>
+</html>

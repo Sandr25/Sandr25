@@ -84,6 +84,29 @@
             width: 100%;
             bottom: 0;
         }
+         .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -91,10 +114,17 @@
         <h3>Welcome to Our Online Shop!</h3>
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Contact</a>
-        <a href="#">About us</a>
+        <a href="{% url 'main_page' %}">Home</a>
+        <a href="{% url 'product_table' %}">Products</a>
+        <a href="#">Contacts</a>
+        <a href="{% url 'form' %}">Log in</a>
+        <a href="#cart">Cart</a>
+        <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+        </div>
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="#cart">Cart</a>
     </nav>
     <div class="hero">
         <h1>My Happy Little Moments... with Aromatherapy.</h1>
@@ -120,8 +150,8 @@
                 <img src="https://i.etsystatic.com/16942993/r/il/42572a/3089115988/il_570xN.3089115988_lk97.jpg">
                 <button>Find more</button>
             </div>
-            <div>
-            </div>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>
     </footer>

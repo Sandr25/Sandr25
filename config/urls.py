@@ -13,4 +13,6 @@ urlpatterns = [
     path('product_table/', views.ProductTable.as_view(), name='product_table'),
     path('product_create_view/', views.ProductCreateView.as_view(), name='product_create'),
     path('main_page/', views.main.as_view(), name='main_page'),
-]
+    path('form/', views.form.as_view(), name='form'),
+    path('test/', views.test.as_view(), name='test'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
