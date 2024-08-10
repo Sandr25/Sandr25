@@ -15,4 +15,6 @@ urlpatterns = [
     path('main_page/', views.main.as_view(), name='main_page'),
     path('form/', views.form.as_view(), name='form'),
     path('test/', views.test.as_view(), name='test'),
+    path('contact/', views.contact.as_view(), name='contact'),
+    path('candles/', views.Candle.as_view(), name='candles'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

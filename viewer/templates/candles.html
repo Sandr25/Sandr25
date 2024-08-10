@@ -161,7 +161,7 @@
     <nav>
         <a href="{% url 'main_page' %}">Home</a>
         <a href="{% url 'product_table' %}">Products</a>
-        <a href="{% url 'contact' %}">Contacts</a>
+        <a href="#">Contacts</a>
         <a href="{% url 'form' %}">Log in</a>
         <a href="#cart">Cart</a>
         <div class="search-bar">
@@ -173,26 +173,26 @@
         <div class="sidebar">
             <h2>Category</h2>
             <ul>
-                <li><a href="#">Essential Oils</a></li>
-                <li><a href="#">Candles</a></li>
+                <li><a href="{% url 'product_table' %}">Essential Oils</a></li>
+                <li><a href="{% url 'candles' %}">Candles</a></li>
                 <li><a href="#">Diffusors</a></li>
                 <li><a href="#">Gift Cards</a></li>
             </ul>
         </div>
         <div class="products">
-        <!-- Product 1 -->
-        {% for oil in oils %}
-            <div class="product">
-                {% if oil.image %}
-                    <img src="{{ oil.product.image.url }}">
-                {% else %}
-                    <img src="data:">
-                {% endif %}
-                <h2>{{ oil.name }}</h2>
-                <p class="price">{{ oil.product.price }} PLN</p>
-                <button onclick="addToCart('Produkt 1')">Add to cart</button>
-            </div>
-        {% endfor %}
+            <!-- Product 2 -->
+            {% for candle in candles %}
+                <div class="product">
+                    {% if candle.image %}
+                        <img src="{{ candle.product.image.url }}">
+                    {% else %}
+                        <img src="data:">
+                    {% endif %}
+                    <h2>{{ Candle.name }}</h2>
+                    <p class="price">{{ Candle.product.price }} PLN</p>
+                    <button onclick="addToCart('Produkt 2')">Add to cart</button>
+                </div>
+            {% endfor %}
         </div>
     </div>
         <div class="pagination">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns="http://www.w3.org/1999/html">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
         }
         .hero {
             background: url('https://media.timeout.com/images/103951311/630/472/image.jpg') no-repeat center center/cover;
-            height: 250px;
+            height: 400px;
             color: back;
             text-align: center;
             padding-top: 150px;
@@ -116,7 +116,7 @@
     <nav>
         <a href="{% url 'main_page' %}">Home</a>
         <a href="{% url 'product_table' %}">Products</a>
-        <a href="{% url 'contact' %}">Contacts</a>
+        <a href="#">Contacts</a>
         <a href="{% url 'form' %}">Log in</a>
         <a href="#cart">Cart</a>
         <div class="search-bar">
@@ -127,33 +127,17 @@
         <a href="#cart">Cart</a>
     </nav>
     <div class="hero">
-        <h1>My Happy Little Moments... with Aromatherapy.</h1>
-        <h2>Our Aromatherapy Oils are 100% natural.</h2>
+        <h1>Contact us:</h1>
+        <h2>happylittlemoments@gmail.com</h2>
     </div>
-    <div class="container">
-        <div class="products">
-            <div class="product">
-                <h2>Find happiness in every drop.</h2>
-                <h3>Essential Oils bestsellers!</h3>
-                <img src="https://www.nicepng.com/png/detail/104-1049164_why-oils-clip-art-essential-oil-drops.png">
-                <button>Find more</button>
-            </div>
-            <div class="product">
-                <h2>Health is our passion.</h2>
-                <h3>Find your Ideal diffuser.</h3>
-                <img src="https://th.bing.com/th/id/OIP.rZKCC6qKR-oywiPY75Ch2gHaE7?rs=1&pid=ImgDetMain">
-                <button>Find more</button>
-            </div>
-            <div class="product">
-                <h2>Share your happiness with your friends!</h2>
-                <h3>Buy Gift Card.</h3>
-                <img src="https://i.etsystatic.com/16942993/r/il/42572a/3089115988/il_570xN.3089115988_lk97.jpg">
-                <button>Find more</button>
-            </div>
-        </div>
-    </div>
+
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>
     </footer>
+    <script>
+        function addToCart(product) {
+            alert(product + ' added to the cart!');
+        }
+    </script>
 </body>
 </html>

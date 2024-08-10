@@ -13,6 +13,7 @@ class Product(models.Model):
     price = models.IntegerField()
     stock = models.IntegerField()
     category = models.ForeignKey('Category', on_delete=models.DO_NOTHING)
+    image = models.ImageField(null=True)
 
 class Essential_Oil(models.Model):
     name = models.CharField(max_length=255)
@@ -32,15 +33,18 @@ class Candle(models.Model):
     capacity = models.IntegerField(default=120)
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
 
+
 class Gift_Card(models.Model):
     name = models.CharField(max_length=255)
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
+
 
 class Difussor(models.Model):
     name = models.CharField(max_length=255)
     specifications = models.CharField(max_length=255)
     features = models.CharField(max_length=255)
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
+
 
 class User_Product(models.Model):
     quantity = models.IntegerField()

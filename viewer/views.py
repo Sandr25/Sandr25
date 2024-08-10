@@ -26,6 +26,14 @@ class test(TemplateView):
 class form(TemplateView):
     template_name = 'form.html'
 
+class contact(TemplateView):
+    template_name = 'contact.html'
+
+class Candle(TemplateView):
+    template_name = 'candles.html'
+    extra_context = {'candle': models.Candle.objects.all()}
+
+
 class SignUpView(CreateView):
     template_name = 'form.html'
     form_class = forms.SignUpForm
