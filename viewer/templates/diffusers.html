@@ -181,26 +181,26 @@
         </div>
         <div class="products">
         <!-- Product 2 -->
-        {% for candle in candles %}
+        {% for diffusor in diffusers %}
             <div class="product">
-                {% if candle.product.image %}
-                    <img src="{{ candle.product.image.url }}">
+                {% if diffusor.product.image %}
+                    <img src="{{ diffusor.product.image.url }}">
                 {% else %}
                     <img src="data:">
                 {% endif %}
-                <h2>{{ candle.name }}</h2>
-                <p class="price">{{ candle.product.price }} PLN</p>
+                <h2>{{ diffusor.name }}</h2>
+                <p class="price">{{ diffusor.product.price }} PLN</p>
                 <button onclick="addToCart('Produkt 2')">Add to cart</button>
             </div>
         {% endfor %}
         </div>
     </div>
         <div class="pagination">
-            <a href="{% url 'candles' %}">&laquo; Previous</a>
-            <a href="{% url 'candles' %}">1</a>
-            <a href="{% url 'candles' %}">2</a>
-            <a href="{% url 'candles' %}">3</a>
-            <a href="{% url 'candles' %}">Next &raquo;</a>
+            <a href="{% url 'diffusers' %}">&laquo; Previous</a>
+            <a href="{% url 'diffusers' %}">1</a>
+            <a href="{% url 'diffusers' %}">2</a>
+            <a href="{% url 'diffusers' %}">3</a>
+            <a href="{% url 'diffusers' %}">Next &raquo;</a>
         </div>
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>

@@ -181,26 +181,26 @@
         </div>
         <div class="products">
         <!-- Product 2 -->
-        {% for candle in candles %}
+        {% for gift_card in gift_cards %}
             <div class="product">
-                {% if candle.product.image %}
-                    <img src="{{ candle.product.image.url }}">
+                {% if gift_card.product.image %}
+                    <img src="{{ gift_card.product.image.url }}">
                 {% else %}
                     <img src="data:">
                 {% endif %}
-                <h2>{{ candle.name }}</h2>
-                <p class="price">{{ candle.product.price }} PLN</p>
+                <h2>{{ gift_card.name }}</h2>
+                <p class="price">{{ gift_card.product.price }} PLN</p>
                 <button onclick="addToCart('Produkt 2')">Add to cart</button>
             </div>
         {% endfor %}
         </div>
     </div>
         <div class="pagination">
-            <a href="{% url 'candles' %}">&laquo; Previous</a>
-            <a href="{% url 'candles' %}">1</a>
-            <a href="{% url 'candles' %}">2</a>
-            <a href="{% url 'candles' %}">3</a>
-            <a href="{% url 'candles' %}">Next &raquo;</a>
+            <a href="{% url 'gift_cards' %}">&laquo; Previous</a>
+            <a href="{% url 'gift_cards' %}">1</a>
+            <a href="{% url 'gift_cards' %}">2</a>
+            <a href="{% url 'gift_cards' %}">3</a>
+            <a href="{% url 'gift_cards' %}">Next &raquo;</a>
         </div>
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-bottom: 50px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: black;
+            text-align: center;
+            margin: 20px;
+            text-indent: 40px;
+        }
+        h3 {
+            color: black;
+            text-align: center;
+            margin: 20px 0;
+            text-indent: 40px;
+        }
+        h4 {
+            color: black;
+            text-align: left;
+            margin: 20px 0;
+            text-indent: 40px;
+        }
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            background-color: #333;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: purple;
+            color: black;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .hero {
+            background: url('https://www.facescanada.com/cdn/shop/articles/Using_Essential_Oils_in_Skincare_Everything_You_Need_to_Know_1080x.jpg?v=1660048908') no-repeat center center/cover;
+            height: 250px;
+            color: back;
+            text-align: center;
+            padding-top: 150px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: flex;
+            justify-content: space-around;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 20%;
+        }
+        .product img {
+            max-width: 50%;
+            border-radius: 5px;
+        }
+        .product h2 {
+            margin: 0 0 10px;
+        }
+        .product button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+         .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Welcome to Aromatherapy World!</h3>
+    </header>
+    <nav>
+        <a href="{% url 'main_page' %}">Home</a>
+        <a href="{% url 'product_table' %}">Shop</a>
+        <a href="{% url 'contact' %}">Contacts</a>
+        <a href="{% url 'form' %}">Log in</a>
+        <a href="{% url 'user_product' %}"> My Cart</a>
+        <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+        </div>
+    </nav>
+    <div class="hero">
+    </div>
+     <h2>How to use Essential Oils safely</h2>
+                <p>Aromatherapy is both the art and science of using aroma (pure essential oils) for their therapeutic value and to enhance general well-being. Essential oils are aromatic isolates of distilled plant material. Steam distillation is the most common form of essential oil extraction; however, not all plants contain volatile oils that can be extracted this way. Some plants require some kind of solvent to coax the aroma out, while others can be simply cold pressed, as is the case with citrus essential oils.</p>
+                <di></di>
+                <p>It is important to know that these essential oils (aromatic isolates) are extremely concentrated and potent.</p>This means that a little goes a long way! Every essential oil contains a unique variety of chemical components which, when mixed together (naturally by nature), give the essential oil its distinct aroma.</p>
+                <div></div>
+                <p>These chemical components are indicators as to the essential oils’ beneficial uses as well as their safety considerations. These properties are also taken into account when determining how to use essential oils safely.</p>
+                <div></div>
+                <p>There are 3 main categories of essential oil usage. However you choose to use essential oils, always be sure to start slow and pay attention to how your body reacts. Remember, when it comes to essential oils, less is more.</p>
+                <div></div>
+                <div></div>
+            <h4><u>1.Aromatic</u></h4>
+                <div></div>
+                <This is the safest and easiest way to use essential oils. There are a few easy ways to safely experience the aromatic benefits of essential oils:</p>
+                <div></div>
+                <h4><u>Use an essential oil diffuser</u></h4>
+                <p>Putting a few drops of your favorite essential oil in an aromatherapy diffuser helps your home smell better, and can also offer an array of benefits for your mind and body.</p>
+                <div></div>
+                <h4><u>Make your own aromatherapy inhaler</u></h4>
+                <p>Put up to 15 drops of the desired essential oils into a small bowl. Place a wick into the bowl to soak up the oil. Once the essential oil is absorbed, place the wick into the inhaler tube and close the cover. This inhaler can be used several times a day and is excellent for instant and on-demand aromatherapy.</p>
+                <div></div>
+                <h4><u>Direct palm inhalation</u></h4>
+                <div></div>
+                <p>This method offers quick and easy access to the benefits of the essential oil. This should only be used with essential oils that can be safely applied to the skin.</p>
+                <div></div>
+                <p>Put 1-2 drops of essential oil in the palm of your hand. Rub your palms together and inhale deeply. Be sure to keep away from eyes, as essential oils can and will be irritating if you don’t.</p>
+                <div></div>
+                <h4><u>Steam inhalation</u></h4>
+                <div></div>
+                <p>This is an effective way to receive the aromatherapeutic benefits of an essential oil.</p>
+                <div></div>
+                <p><ol>
+                    <li>You will need a bowl (ideally ceramic, glass, or metal), a towel, and hot water</li>
+                    <li>Heat up some water in a teapot or pan</li>
+                    <li>Fill your bowl about halfway with hot water</li>
+                    <li>Add 1 to 2 drops of desired essential oil</li>
+                    <li>Put bowl on counter</li>
+                    <li>Close your eyes and put your face over the bowl</li>
+                    <li>If the temperature is comfortable, put the towel over your head and take some deep breaths for a minute or two. (Use caution and don’t use more than 2 drops per steam)</li>
+                    <li>Do up to 3-5 times per day if needed</li>
+                </ol></p>
+                <div></div>
+                <div></div>
+            <h4><u>2.Topical</u></h4>
+                <div></div>
+                <p>In order to safely use essential oils topically, you must first dilute with a carrier oil (such as almond, avocado, or jojoba oil) and apply carefully. Dilution ratios vary depending on the essential oil being used, as well as the area of application, the age of the person using the essential oil, and if the person has sensitive skin or medical conditions. It is important to adhere to these guidelines to avoid potential skin irritation or sensitization.</p>
+                <div></div>
+                <p>The following dilution chart is a good key for navigating the world of topical essential oil usage:</p>
+                <p><ol>
+                    <li>1% = 5-6 drops of essential oil per oz. of carrier oil</li>
+                    <li>2% = 10-12 drops of essential oil per oz. of carrier oil</li>
+                    <li>5% = 25-30 drops of essential oil per oz. of carrier oil</li>
+                    <li>10% = 50-60 drops of essential oil per oz. of carrier oil</li>
+                </ol></p>
+                <div></div>
+                <p>A 1% dilution is generally considered safe for most essential oils. This means 5-6 drops of essential oil per ounce of carrier oil. Keep in mind that some essential oils, such as cinnamon or clove, are considered HOT oils and have recommended dilutions of no more than 0.5% (meaning, do not use more than 2-3 drops of these oils per ounce of carrier oil).</p>
+                <p>Some essential oils can increase your skin’s sensitivity to sunlight. This is called photosensitivity and mainly occurs with, but is not exclusive to, many citrus oils. Bergamot, lemon, grapefruit, and lime are the most notable culprits for causing reactions. If these essential oils are applied to the skin and then exposed to UV light, photosensitivity can cause serious burns. Be sure to avoid topical use of these essential oils if you will be undergoing UV exposure shortly afterward. Not to worry, however — the plant kingdom provides many suitable alternatives.</p>
+                <di></di>
+                <p>Some simple topical essential oil usage suggestions:</p>
+                <div></div>
+                <p><u>Natural perfume oil</u> – Mix approximately 20 drops of your favorite essential oils (4% dilution) into a carrier oil of your choice. Apply to pulse points as desired.</p>
+                <div></div>
+                <p><u>Aromatherapy massage</u> – Remember that essential oils are extremely concentrated. A 2-3% dilution should work well for a healthy adult. This means using 10-18 drops of essential oil per ounce of carrier oil.</p>
+                <div></div>
+                <p><u>Aromatic bath</u> – Add a few drops of your favorite essential oils to a teaspoon of carrier oil and pour into a bath. Be aware that some oils are strong, and that just because they smell good doesn’t mean they are great for the bathtub. Cinnamon and thyme are two such examples. Always do your homework!</p>
+                <div></div>
+                <div></div>
+            <h4><u>3.Internal</u></h4>
+                <div></div>
+                <p>The third category of essential oil usage is internal. Do not use essential oils internally. While it is true that a few essential oils are used in the food and flavor industry, we do not recommend using essential oils internally unless under direct supervision of a qualified health practitioner who is properly educated in the safety and risks of doing so.</p>
+                 <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+    <h2>Factors that influence the safety of the Essential Oils</h2>
+                <div></div>
+            <h4><b>1.Quality.</b></h4>
+                <p>One of the most important things to note when it comes to using essential oils is that quality varies drastically on the market. In order to receive any real aromatherapeutic benefits, it is important to use only pure, unadulterated essential oils. There is no regulatory body ensuring that all essential oils on the market are truly pure. Essential oils can often be adulterated with less expensive chemical isolates, synthetic oils, or vegetable oils to extend the oil and increase profit margin. This is where knowing your supplier is helpful. By sourcing your essential oil from a supplier who has done their due diligence to ensure essential oil purity through 3rd party GC/MS testing, as well as suppliers who work directly with a global network of farmers and distillers, you will have the best chance of getting a truly pure essential oil — and all its accompanying benefits.</p>
+                <div></div>
+            <h4><b>2.Chemical composition of the oil.</b></h4>
+                <p>As mentioned above, essential oils can be made up of anywhere from a few to dozens of chemical components, collectively making up an oil’s unique therapeutic and aromatic profile. Some chemical components are known skin irritants or can even cause possible drug interactions. Being aware of this beforehand can give clues to safe usage. These essential oils may still be used, but at a much lower dilution in topical or aromatic use.</p>
+                <div></div>
+            <h4><b>3.Method of application.</b></h4>
+                <p>Note that aromatic usage of essential oils is the lowest risk for potential irritation. However, always use caution and pay attention to any known safety considerations.</p>
+                <div></div>
+            <h4><b>4.Dilution used.</b></h4>
+                <p>Most topical applications of essential oils will be approximately 1-5% dilutions. As dilution percentages increase, so does the risk of skin irritation.</p>
+                <div></div>
+            <h4><b>5.Integrity of skin.</b></h4>
+                <p></p>Damaged, inflamed or already irritated skin may have increased sensitivity to essential oils. Be sure to properly dilute essential oils before using topically.</p>
+                <div></div>
+            <h4><b>6.Age of user.</b></h4>
+                <p>Infants and young children are more sensitive to essential oils than a healthy adult. As a result, essential oils should be avoided or used only in a highly diluted form for these and other sensitive groups. The elderly, people with sensitive skin, or those with medical conditions should also use caution when considering essential oils.</p>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+    <h2>General Essential Oil Safety Guidelines</h2>
+                <div></div>
+                <p><ol>
+                    <li><b>Essential oils are volatile.</b> This means they are prone to oxidation and sensitive to heat, light, and oxygen. As essential oils oxidize and degrade, they not only lose their therapeutic value, but pose an increased risk of skin irritation. It is important to keep essential oils in dark glass and to store them away from light and heat. Certain essential oils, like citrus, are more sensitive to these elements than other and will degrade more rapidly.</li>
+                    <div></div>
+                    <li><b>Do not use essential oils internally.</b></li>
+                    <div></div>
+                    <li><b>Keep essential oils out of the reach of pets and children.</b></li>
+                    <div></div>
+                    <li><b>Do not use photosensitizing essential oils topically for 24 hours</b>prior to going into the sun or a tanning booth where UV exposure is possible.</li>
+                    <div></div>
+                    <li><b>If you are pregnant, nursing, or have medical conditions,</b> consult a health care professional before using essential oils.</li>
+                    <div></div>
+                    <li><b>Always dilute essential oils before topical use.</b></li>
+                    <div></div>
+                    <li><b>Avoid contact with eyes and mucous membranes.</b></li>
+                    <div></div>
+                    <li><b>Take the time to educate yourself</b> on the essential oils you choose to use and enjoy!</li>
+                </ol></p>
+                <div></div>
+                <div></div>
+        <footer>
+            <p>&copy; 2024 Online store all rights reserved.</p>
+        </footer>
+</body>
+</html>

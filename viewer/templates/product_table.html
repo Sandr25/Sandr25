@@ -160,10 +160,10 @@
     </header>
     <nav>
         <a href="{% url 'main_page' %}">Home</a>
-        <a href="{% url 'product_table' %}">Products</a>
+        <a href="{% url 'product_table' %}">Shop</a>
         <a href="{% url 'contact' %}">Contacts</a>
         <a href="{% url 'form' %}">Log in</a>
-        <a href="#cart">Cart</a>
+        <a href="{% url 'user_product' %}"> My Cart</a>
         <div class="search-bar">
                 <input type="text" placeholder="Search...">
                 <button>Search</button>
@@ -173,34 +173,34 @@
         <div class="sidebar">
             <h2>Category</h2>
             <ul>
-                <li><a href="#">Essential Oils</a></li>
-                <li><a href="#">Candles</a></li>
-                <li><a href="#">Diffusors</a></li>
-                <li><a href="#">Gift Cards</a></li>
+                <li><a href="{% url 'product_table' %}">Essential Oils</a></li>
+                <li><a href="{% url 'candles' %}">Candles</a></li>
+                <li><a href="{% url 'diffusers' %}">Diffusor</a></li>
+                <li><a href="{% url 'gift_cards' %}">Gift Cards</a></li>
             </ul>
         </div>
         <div class="products">
         <!-- Product 1 -->
         {% for oil in oils %}
             <div class="product">
-                {% if oil.image %}
+                {% if oil.product.image %}
                     <img src="{{ oil.product.image.url }}">
                 {% else %}
                     <img src="data:">
                 {% endif %}
-                <h2>{{ oil.name }}</h2>
-                <p class="price">{{ oil.product.price }} PLN</p>
+                <a href="{% url 'Himalayan_Lavender_Oil' %}"><h2>{{ oil.name }}</h2></a>
+                <p class="price">{{ oil.product.price }} PLN </p>
                 <button onclick="addToCart('Produkt 1')">Add to cart</button>
             </div>
         {% endfor %}
         </div>
     </div>
         <div class="pagination">
-            <a href="#">&laquo; Previous</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">Next &raquo;</a>
+            <a href="{% url 'product_table' %}">&laquo; Previous</a>
+            <a href="{% url 'product_table' %}">1</a>
+            <a href="{% url 'product_table' %}">2</a>
+            <a href="{% url 'product_table' %}">3</a>
+            <a href="{% url 'product_table' %}">Next &raquo;</a>
         </div>
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>

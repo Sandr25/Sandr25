@@ -27,6 +27,7 @@ class Essential_Oil(models.Model):
     batch_number = models.IntegerField()
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
 
+
 class Candle(models.Model):
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=255, default='white')
@@ -39,7 +40,7 @@ class Gift_Card(models.Model):
     product = models.OneToOneField('Product', on_delete=models.CASCADE)
 
 
-class Difussor(models.Model):
+class Diffusor(models.Model):
     name = models.CharField(max_length=255)
     specifications = models.CharField(max_length=255)
     features = models.CharField(max_length=255)
@@ -51,6 +52,7 @@ class User_Product(models.Model):
     product = models.ForeignKey('Product', on_delete=models.DO_NOTHING)
     order = models.ForeignKey('Order', on_delete=models.DO_NOTHING)
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    image = models.ImageField(null=True)
 
 class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)

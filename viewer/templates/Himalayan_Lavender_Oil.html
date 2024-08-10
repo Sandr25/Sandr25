@@ -170,45 +170,39 @@
         </div>
     </nav>
     <div class="container">
-        <div class="sidebar">
-            <h2>Category</h2>
-            <ul>
-                <li><a href="{% url 'product_table' %}">Essential Oils</a></li>
-                <li><a href="{% url 'candles' %}">Candles</a></li>
-                <li><a href="{% url 'diffusers' %}">Diffusor</a></li>
-                <li><a href="{% url 'gift_cards' %}">Gift Cards</a></li>
-            </ul>
-        </div>
         <div class="products">
-        <!-- Product 2 -->
-        {% for candle in candles %}
+         <!-- Product 1 -->
+        {% for oil in oils %}
             <div class="product">
-                {% if candle.product.image %}
-                    <img src="{{ candle.product.image.url }}">
+                {% if oil.product.image %}
+                    <img src="{{ oil.product.image.url }}">
                 {% else %}
                     <img src="data:">
                 {% endif %}
-                <h2>{{ candle.name }}</h2>
-                <p class="price">{{ candle.product.price }} PLN</p>
-                <button onclick="addToCart('Produkt 2')">Add to cart</button>
+                    <a href="{% url 'Himalayan_Lavender_Oil' %}"><h2>{{ oil.name }}</h2></a>
+                    <h2>{{ oil.latin_name }}</h2>
+                    <h2>{{ oil.ingredients }}</h2>
+                    <h2>{{ oil.plant_part }}</h2>
+                    <h2>{{ oil.capacity }}</h2>
+                    <h2>{{ oil.origin_country }}</h2>
+                    <h2>{{ oil.extraction_method }}</h2>
+                    <h2>{{ oil.quality_control }}</h2>
+                    <h2>{{ oil.batch_number }}</h2>
+                    <p class="price">{{ oil.product.price }} PLN </p>
+                    <button onclick="addToCart('Produkt 1')">Add to cart</button>
             </div>
         {% endfor %}
         </div>
-    </div>
         <div class="pagination">
-            <a href="{% url 'candles' %}">&laquo; Previous</a>
-            <a href="{% url 'candles' %}">1</a>
-            <a href="{% url 'candles' %}">2</a>
-            <a href="{% url 'candles' %}">3</a>
-            <a href="{% url 'candles' %}">Next &raquo;</a>
+            <a href="{% url 'product_table' %}">&laquo; Previous</a>
+            <a href="{% url 'product_table' %}">1</a>
+            <a href="{% url 'product_table' %}">2</a>
+            <a href="{% url 'product_table' %}">3</a>
+            <a href="{% url 'product_table' %}">Next &raquo;</a>
         </div>
+    </div>
     <footer>
         <p>&copy; 2024 Online store all rights reserved.</p>
     </footer>
-    <script>
-        function addToCart(product) {
-            alert(product + ' added to the cart!');
-        }
-    </script>
 </body>
 </html>

@@ -22,7 +22,21 @@
             padding: 10px 0;
             text-align: center;
         }
-       }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: purple;
+            color: black;
+        }
         .container {
             width: 80%;
             overflow: hidden;
@@ -53,6 +67,9 @@
     <header>
         <h3>Create an account, it takes only few minutes!</h3>
     </header>
+    <nav>
+        <a href="{% url 'main_page' %}">Home</a>
+    </nav>
     <div class="container mt-5">
         <h2>Registration</h2>
         <form action="#">

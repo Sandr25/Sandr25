@@ -39,10 +39,13 @@
         }
         .hero {
             background: url('https://media.timeout.com/images/103951311/630/472/image.jpg') no-repeat center center/cover;
-            height: 400px;
+            height: 650px;
             color: back;
             text-align: center;
             padding-top: 150px;
+        }
+        h1 {
+            margin-top: 60px;
         }
         .products {
             display: flex;
@@ -111,20 +114,18 @@
 </head>
 <body>
     <header>
-        <h3>Welcome to Our Online Shop!</h3>
+        <h3>Welcome to Aromatherapy!</h3>
     </header>
     <nav>
         <a href="{% url 'main_page' %}">Home</a>
         <a href="{% url 'product_table' %}">Products</a>
-        <a href="#">Contacts</a>
+        <a href="{% url 'contact' %}">Contacts</a>
         <a href="{% url 'form' %}">Log in</a>
         <a href="#cart">Cart</a>
         <div class="search-bar">
                 <input type="text" placeholder="Search...">
                 <button>Search</button>
         </div>
-        <a href="{% url 'login' %}">Log in</a>
-        <a href="#cart">Cart</a>
     </nav>
     <div class="hero">
         <h1>Contact us:</h1>
